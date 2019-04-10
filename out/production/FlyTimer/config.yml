@@ -1,0 +1,21 @@
+config:
+  t1:
+    time: 5
+    cooldown: 120
+    extendedTimeinNeutral: 5
+  t2:
+    time: 10
+    cooldown: 130
+    extendedTimeinNeutral: 10
+  t3:
+    time: 15
+    cooldown: 140
+    extendedTimeinNeutral: 15
+  t4:
+    time: 20
+    cooldown: 150
+    extendedTimeinNeutral: 20
+  t5:
+    time: 30
+    cooldown: 160
+    extendedTimeinNeutral: 30
