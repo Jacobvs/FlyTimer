@@ -6,12 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09f2e53d-17fa-4fe5-8c39-fbc3841de8f3" name="Default" comment="V3.2.1 - Add Stopall command and small bug fixes">
-      <change afterPath="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyingPlayer.java" afterDir="false" />
+    <list default="true" id="09f2e53d-17fa-4fe5-8c39-fbc3841de8f3" name="Default" comment="v4.0.0 -- Complete recode, status is handled by a synchronous task each second to reduce the chance of bugged statuses and increase performance&#10;Additionally, player operations are handled by a flyingplayer class for simplicity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/Cooldown.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyTimer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyTimer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/plugin.yml" afterDir="false" />
     </list>
     <ignored path="RandomCommandTimer.iml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,17 +64,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="12" />
-          <entry key="java" value="10476" />
+          <entry key="java" value="10991" />
           <entry key="md" value="92" />
           <entry key="name" value="9" />
+          <entry key="txt" value="264" />
           <entry key="xml" value="24" />
           <entry key="yml" value="813" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10476" />
-          <entry key="PLAIN_TEXT" value="21" />
+          <entry key="JAVA" value="10991" />
+          <entry key="PLAIN_TEXT" value="285" />
           <entry key="Specification" value="92" />
           <entry key="XML" value="24" />
           <entry key="YAML" value="813" />
@@ -108,8 +106,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyTimer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3791">
-              <caret line="223" column="36" lean-forward="true" selection-start-line="223" selection-start-column="36" selection-end-line="223" selection-end-column="36" />
+            <state relative-caret-position="353">
+              <caret line="118" column="50" lean-forward="true" selection-start-line="118" selection-start-column="50" selection-end-line="118" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4402#4660#0" expanded="true" />
@@ -132,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyingPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="890">
+              <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#599#600#0" expanded="true" />
@@ -219,8 +217,8 @@
         <option value="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/events.java" />
         <option value="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/Cooldown.java" />
         <option value="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/Player.java" />
-        <option value="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyingPlayer.java" />
         <option value="$PROJECT_DIR$/src/plugin.yml" />
+        <option value="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyingPlayer.java" />
         <option value="$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyTimer.java" />
       </list>
     </option>
@@ -285,7 +283,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/Jacob/Documents/Coding/RandomCommandTimer/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554924024856" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554925124725" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -513,7 +511,7 @@
       <workItem from="1554351628181" duration="1204000" />
       <workItem from="1554435593138" duration="90000" />
       <workItem from="1554822469179" duration="746000" />
-      <workItem from="1554863355065" duration="9087000" />
+      <workItem from="1554863355065" duration="10087000" />
     </task>
     <task id="LOCAL-00003" summary="V2.0.2- Big update to add execute command -- BETA --">
       <created>1490633421248</created>
@@ -585,17 +583,24 @@
       <option name="project" value="LOCAL" />
       <updated>1496732756562</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="v4.0.0 -- Complete recode, status is handled by a synchronous task each second to reduce the chance of bugged statuses and increase performance&#10;Additionally, player operations are handled by a flyingplayer class for simplicity">
+      <created>1554924180564</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1554924180564</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96453000" />
+    <option name="totallyTimeSpent" value="97453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27795526" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27795526" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -613,7 +618,7 @@
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.497558" weight="0.32914045" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.502442" side_tool="true" weight="0.32914045" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.27452925" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.27371272" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" sideWeight="0.497558" weight="0.32914045" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32914045" />
       <window_info anchor="bottom" id="JProfiler" order="13" />
@@ -652,7 +657,8 @@
     <MESSAGE value="V3.1.6 - Fix bug if command not found in config" />
     <MESSAGE value="V3.1.7 - Add Disable message &amp; fix small reload bug" />
     <MESSAGE value="V3.2.1 - Add Stopall command and small bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="V3.2.1 - Add Stopall command and small bug fixes" />
+    <MESSAGE value="v4.0.0 -- Complete recode, status is handled by a synchronous task each second to reduce the chance of bugged statuses and increase performance&#10;Additionally, player operations are handled by a flyingplayer class for simplicity" />
+    <option name="LAST_COMMIT_MESSAGE" value="v4.0.0 -- Complete recode, status is handled by a synchronous task each second to reduce the chance of bugged statuses and increase performance&#10;Additionally, player operations are handled by a flyingplayer class for simplicity" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -805,10 +811,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyingPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="890">
+          <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
@@ -839,17 +852,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="17" lean-forward="true" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/fracturedfactions/flytimer/FlyTimer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3791">
-          <caret line="223" column="36" lean-forward="true" selection-start-line="223" selection-start-column="36" selection-end-line="223" selection-end-column="36" />
+        <state relative-caret-position="353">
+          <caret line="118" column="50" lean-forward="true" selection-start-line="118" selection-start-column="50" selection-end-line="118" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4402#4660#0" expanded="true" />

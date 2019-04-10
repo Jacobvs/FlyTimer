@@ -25,7 +25,7 @@ import java.util.*;
 
 public class FlyTimer extends JavaPlugin implements Listener {
 
-    private String VERSION = "4.0.0";
+    private String VERSION = "4.1.0";
     private HashMap<UUID, FlyingPlayer> players = new HashMap<>();
     private LinkedHashMap<String, Integer[]> timeList = new LinkedHashMap<>();
 
@@ -107,14 +107,34 @@ public class FlyTimer extends JavaPlugin implements Listener {
             }
             return true;
         }
-        else if(cmd.getName().equalsIgnoreCase("flytimer") && args[0].equalsIgnoreCase("reload")){
+        else if(cmd.getName().equalsIgnoreCase("flytimer")){
             if (sender.hasPermission("flytimer.admin")) {
-                Bukkit.getPluginManager().disablePlugin(this);
-                Bukkit.getPluginManager().enablePlugin(this);
-                sender.sendMessage(ChatColor.GREEN.toString() + "[FT] FlyTimer was successfully reloaded!");
+                if(args[0].equalsIgnoreCase("reload")) {
+                    Bukkit.getPluginManager().disablePlugin(this);
+                    Bukkit.getPluginManager().enablePlugin(this);
+                    sender.sendMessage(ChatColor.GREEN.toString() + "[FT] FlyTimer was successfully reloaded!");
+                }
+                else if(args[0].equalsIgnoreCase("check")){
+                    if(args.length > 1){
+                        Player p = Bukkit.getPlayer(args[1]);
+                        if(p != null){
+                            if(players.containsKey(p.getUniqueId())){
+                                FlyingPlayer flyP = players.get(p.getUniqueId());
+                                sender.sendMessage("[FT] The status of " + p.getDisplayName() + "is " + flyP.getStatus());
+                            }
+                            else
+                                sender.sendMessage(ChatColor.RED.toString() + "[FT] No player was found in list with the name: " + p.getDisplayName() + ". They might have the override permission!");
+                        }
+                        else
+                            sender.sendMessage(ChatColor.RED.toString() + "[FT] No player was found with the name: " + args[1]);
+                    }
+                    else
+                        sender.sendMessage(ChatColor.RED.toString() + "[FT] No player was specified!");
+                }
             } else {
                 sender.sendMessage(ChatColor.RED + "[FT] No permission to execute this command!");
             }
+            return true;
         }
         return false;
     }
