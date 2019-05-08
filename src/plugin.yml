@@ -1,11 +1,14 @@
-main: com.fracturedfactions.flytimer.FlyTimer
+main: com.protocolmc.flytimer.FlyTimer
 name: FlyTimer
-version: 4.1.0
+version: 4.4.2
 author: Darkm4tter
 description: A simple plugin that allows players to fly for specified times in the warzone or allied territories.
 website: www.protocolmc.com
 depend:
   - Factions
+  - Essentials
+softdepend:
+  - NoCheatPlus
 permissions:
   flytimer.t1:
     description: Access to t1 fly time

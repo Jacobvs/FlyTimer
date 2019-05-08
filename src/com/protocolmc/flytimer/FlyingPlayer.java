@@ -1,23 +1,23 @@
-package com.fracturedfactions.flytimer;
+package com.protocolmc.flytimer;
 
 import com.massivecraft.factions.FPlayer;
 import com.massivecraft.factions.FPlayers;
-import org.bukkit.Location;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class FlyingPlayer {
 
     private Player p;
     private FPlayer fp;
-    private Location lastLoc;
     private int status;
-    private boolean onCooldown, canSafezoneFly;
-    private long cooldownExpiry, flyTime, cooldownTime, extendedTime;
+    private boolean onCooldown, cooldownPaused, canSafezoneFly, startedFlying;
+    private long cooldownExpiry, flyTime, cooldownTime, cooldownTimeLeft, extendedTime;
 
     FlyingPlayer(Player p, int flyTime, int cooldownTime, int extendedTime, boolean canSafezoneFly) {
         this.p = p;
         this.status = 0;
         this.onCooldown = false;
+        this.cooldownPaused = false;
         this.flyTime = flyTime*1000;
         this.cooldownTime = cooldownTime*1000;
         this.extendedTime = extendedTime*1000;
@@ -25,22 +25,36 @@ public class FlyingPlayer {
         this.fp = FPlayers.getInstance().getByPlayer(p);
     }
 
-    public void setLocation(Location l){
-        this.lastLoc = l;
-    }
-
     void startCooldown() {
         this.onCooldown = true;
-        this.cooldownExpiry = System.currentTimeMillis() + cooldownTime;
+        this.cooldownExpiry = System.currentTimeMillis() + this.cooldownTime;
+    }
+
+    void pauseCooldown(){
+        this.cooldownPaused = true;
+        this.cooldownTimeLeft = this.cooldownExpiry - System.currentTimeMillis();
+    }
+
+    void resumeCooldown(){
+        this.cooldownPaused = false;
+        this.cooldownExpiry = System.currentTimeMillis() + this.cooldownTimeLeft;
     }
 
     void endCooldown(){
         this.onCooldown = false;
+        this.cooldownPaused = false;
+        this.p.setAllowFlight(true);
+        this.p.sendMessage(ChatColor.GREEN.toString() + "You are now able to fly!");
+        this.cooldownExpiry = System.currentTimeMillis() - 10;
     }
 
     void setStatus(int status) {
         this.status = status;
     }
+
+    void setFlying(boolean flying){ this.startedFlying = flying;}
+
+    boolean getFlying(){return this.startedFlying;}
 
     Player getPlayer(){
         return this.p;
@@ -50,20 +64,16 @@ public class FlyingPlayer {
         return this.fp;
     }
 
-    Location getLastLoc(){
-        return lastLoc;
-    }
-
     boolean getCooldown() {
-        return this.onCooldown;
+        return (this.onCooldown && !this.cooldownPaused);
     }
 
     long getCooldownExpiry(){
         return this.cooldownExpiry;
     }
 
-    long getCooldownTimeLeft(){
-        return (int) ((this.cooldownExpiry - System.currentTimeMillis()));
+    boolean getCooldownPaused(){
+        return this.cooldownPaused;
     }
 
     int getStatus() {

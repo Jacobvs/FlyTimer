@@ -1,11 +1,12 @@
-main: com.fracturedfactions.flytimer.FlyTimer
+main: com.protocolmc.flytimer.FlyTimer
 name: FlyTimer
-version: 3.2.1
+version: 4.4.2
 author: Darkm4tter
 description: A simple plugin that allows players to fly for specified times in the warzone or allied territories.
-website: www.fracturedfactions.com
+website: www.protocolmc.com
 depend:
   - Factions
+  - Essentials
 permissions:
   flytimer.t1:
     description: Access to t1 fly time
@@ -28,6 +29,9 @@ permissions:
   flytimer.override:
     description: override plugin abilities
     default: op
+  flytimer.admin:
+    description: reload plugin and toggle player flight
+    default: op
 commands:
   togglefly:
     description: Toggle fly mode
@@ -35,3 +39,6 @@ commands:
   toggleflight:
     description: Toggle fly mode
     usage: §c/toggleflight
+  flytimer:
+    description: Reload plugin
+    usage: §c/flytimer reload
